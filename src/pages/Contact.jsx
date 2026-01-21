@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useRef } from 'react'
+import LazyBackgroundImage from '../components/LazyBackgroundImage'
 
 function Contact({ t, lang }) {
   const isRTL = lang === 'ar'
@@ -114,7 +115,7 @@ function Contact({ t, lang }) {
     <div className="contact-page">
       {/* Hero Section with Background */}
       <section className="page-hero">
-        <div className="page-hero-bg" style={{ backgroundImage: 'url(/contact_me.jpg)' }}></div>
+        <LazyBackgroundImage src="/contact_me.jpg" className="page-hero-bg" />
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <span className="page-hero-label fade-in">{c.togetherToExcellence}</span>

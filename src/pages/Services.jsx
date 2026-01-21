@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
+import LazyBackgroundImage from '../components/LazyBackgroundImage'
 
 function Services({ t, lang }) {
   const isRTL = lang === 'ar'
@@ -214,7 +215,7 @@ function Services({ t, lang }) {
     <div className="services-page">
       {/* Hero Section with Background */}
       <section className="page-hero">
-        <div className="page-hero-bg" style={{ backgroundImage: 'url(/costraction_background3.jpg)' }}></div>
+        <LazyBackgroundImage src="/costraction_background3.jpg" className="page-hero-bg" />
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <span className="page-hero-label fade-in">{c.togetherToExcellence}</span>
@@ -248,7 +249,7 @@ function Services({ t, lang }) {
               style={{ animationDelay: `${0.2 + index * 0.1}s` }}
             >
               <div className="service-detailed-image">
-                <img src={service.image} alt={service.title} onError={(e) => {
+                <img src={service.image} alt={service.title} loading="lazy" onError={(e) => {
                   e.target.src = '/costraction_background.jpg'
                 }} />
                 <div className="service-detailed-number">0{service.id}</div>
@@ -283,7 +284,7 @@ function Services({ t, lang }) {
 
       {/* CTA Section */}
       <section className="services-cta-section">
-        <div className="services-cta-bg" style={{ backgroundImage: 'url(/costraction_background2.jpg)' }}></div>
+        <LazyBackgroundImage src="/costraction_background2.jpg" className="services-cta-bg" />
         <div className="services-cta-overlay"></div>
         <div className="services-cta-content">
           <h2 className="services-cta-title fade-in">

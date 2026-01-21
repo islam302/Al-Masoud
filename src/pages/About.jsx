@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useRef } from 'react'
+import LazyBackgroundImage from '../components/LazyBackgroundImage'
 
 function About({ t, lang }) {
   const isRTL = lang === 'ar'
@@ -74,7 +75,7 @@ function About({ t, lang }) {
     <div className="about-page">
       {/* Hero Section with Background */}
       <section className="page-hero">
-        <div className="page-hero-bg" style={{ backgroundImage: 'url(/costraction_background.jpg)' }}></div>
+        <LazyBackgroundImage src="/costraction_background.jpg" className="page-hero-bg" />
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <span className="page-hero-label fade-in">{c.togetherToExcellence}</span>
@@ -97,13 +98,13 @@ function About({ t, lang }) {
           {/* Images Column - Left Side */}
           <div className="about-images">
             <div className="about-image-top fade-in">
-              <img src="/about.jpg" alt="Construction" />
+              <img src="/about.jpg" alt="Construction" loading="lazy" />
             </div>
             <div className="about-image-bottom fade-in" style={{ animationDelay: '0.2s' }}>
-              <img src="/about-2-1-1.webp" alt="Construction site" />
+              <img src="/about-2-1-1.webp" alt="Construction site" loading="lazy" />
             </div>
             <div className="about-image-badge fade-in" style={{ animationDelay: '0.4s' }}>
-              <img src="/about-em1-1-1-1.webp" alt="Under construction" />
+              <img src="/about-em1-1-1-1.webp" alt="Under construction" loading="lazy" />
             </div>
           </div>
 
@@ -156,7 +157,7 @@ function About({ t, lang }) {
 
       {/* Mission Section */}
       <section className="mission-section">
-        <div className="mission-bg" style={{ backgroundImage: 'url(/costraction_background2.jpg)' }}></div>
+        <LazyBackgroundImage src="/costraction_background2.jpg" className="mission-bg" />
         <div className="mission-overlay"></div>
         <div className="mission-content">
           <h2 className="mission-title fade-in">{c.missionTitle}</h2>
