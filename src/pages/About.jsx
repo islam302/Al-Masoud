@@ -5,6 +5,13 @@ function About({ t, lang }) {
   const isRTL = lang === 'ar'
   const sectionRef = useRef(null)
 
+  // Scroll to next section
+  const scrollToContent = () => {
+    if (sectionRef.current) {
+      sectionRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   // Fade in animation on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -40,6 +47,7 @@ function About({ t, lang }) {
       viewPortfolio: 'View Portfolio',
       completedProjects: 'Completed Projects',
       distinguishedTeam: 'Distinguished Team',
+      yearsExperience: 'Years of Experience',
     },
     ar: {
       pageTitle: 'من نحن',
@@ -50,12 +58,13 @@ function About({ t, lang }) {
       companyLabel: 'مؤسسة المسعود',
       mainHeading: 'الشريك الأمثل للمقاولات العامة والحلول الإنشائية المتكاملة',
       aboutTitle: 'نبذة عنا',
-      aboutText: 'نحن شركة مقاولات متخصصة في تقديم حلول متكاملة بمجالات البناء والتشييد، مع خبرة في تنفيذ المشاريع بأعلى معايير الجودة. تشمل خدماتنا المقاولات العامة، التشطيبات الداخلية والخارجية، أعمال الديكور والتصميم، إضافة إلى التكسية بمختلف أنواعها مثل الخشب، الحجر، الرخام، ومواد الـ HPL وغيرها. نسعى دائمًا لتقديم أعمال احترافية تلبّي تطلعات عملائنا وتجمع بين الدقة والجمال في كل مشروع.',
-      missionTitle: 'مهمة الشركة',
+      aboutText: 'نحن مؤسسة مقاولات متخصصة في تقديم حلول متكاملة بمجالات البناء والتشييد، مع خبرة في تنفيذ المشاريع بأعلى معايير الجودة. تشمل خدماتنا المقاولات العامة، التشطيبات الداخلية والخارجية، أعمال الديكور والتصميم، إضافة إلى التكسية بمختلف أنواعها مثل الخشب، الحجر، الرخام، ومواد الـ HPL وغيرها. نسعى دائمًا لتقديم أعمال احترافية تلبّي تطلعات عملائنا وتجمع بين الدقة والجمال في كل مشروع.',
+      missionTitle: 'مهمة المؤسسة',
       missionText: 'نسعى إلى بناء مشاريع عمرانية متكاملة ترتكز على الجودة والابتكار، من خلال اعتماد أحدث التقنيات الهندسية وتوظيف أفضل الكفاءات، بما يضمن تلبية احتياجات عملائنا في القطاعين العام والخاص، ويسهم في تعزيز البنية التحتية ودعم التنمية المستدامة داخل المملكة.',
       viewPortfolio: 'شاهد معرض الأعمال',
       completedProjects: 'المشاريع المكتملة',
       distinguishedTeam: 'فريقنا المتميز',
+      yearsExperience: 'سنوات الخبرة',
     }
   }
 
@@ -75,7 +84,7 @@ function About({ t, lang }) {
             <span className="breadcrumb-separator">—</span>
             <span className="breadcrumb-current">{c.breadcrumbAbout}</span>
           </div>
-          <div className="scroll-indicator fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="scroll-indicator fade-in" style={{ animationDelay: '0.6s' }} onClick={scrollToContent}>
             <span>{c.scrollDown}</span>
             <div className="scroll-arrow"></div>
           </div>
@@ -88,7 +97,7 @@ function About({ t, lang }) {
           {/* Images Column - Left Side */}
           <div className="about-images">
             <div className="about-image-top fade-in">
-              <img src="/about.webp" alt="Construction" />
+              <img src="/about.jpg" alt="Construction" />
             </div>
             <div className="about-image-bottom fade-in" style={{ animationDelay: '0.2s' }}>
               <img src="/about-2-1-1.webp" alt="Construction site" />
@@ -110,7 +119,17 @@ function About({ t, lang }) {
 
             {/* Stats Cards */}
             <div className="about-stats">
-              <div className="stat-card stat-card-orange fade-in" style={{ animationDelay: '0.5s' }}>
+              <div className="stat-card stat-card-gold fade-in" style={{ animationDelay: '0.5s' }}>
+                <span className="stat-title">{c.yearsExperience}</span>
+                <div className="stat-icon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+                  </svg>
+                </div>
+                <div className="stat-divider"></div>
+                <span className="stat-number">+20</span>
+              </div>
+              <div className="stat-card stat-card-navy fade-in" style={{ animationDelay: '0.6s' }}>
                 <span className="stat-title">{c.distinguishedTeam}</span>
                 <div className="stat-icon">
                   <svg viewBox="0 0 24 24" fill="currentColor">
@@ -120,7 +139,7 @@ function About({ t, lang }) {
                 <div className="stat-divider"></div>
                 <span className="stat-number">+100</span>
               </div>
-              <div className="stat-card stat-card-gold fade-in" style={{ animationDelay: '0.6s' }}>
+              <div className="stat-card stat-card-gold fade-in" style={{ animationDelay: '0.7s' }}>
                 <span className="stat-title">{c.completedProjects}</span>
                 <div className="stat-icon">
                   <svg viewBox="0 0 24 24" fill="currentColor">

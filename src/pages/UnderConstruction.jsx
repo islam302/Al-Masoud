@@ -24,6 +24,22 @@ function UnderConstruction({ t, lang, pageType }) {
   }, [])
 
   const content = {
+    portfolio: {
+      en: {
+        pageTitle: 'Portfolio',
+        breadcrumbPage: 'Portfolio',
+        underConstruction: 'Under Construction',
+        message: 'We are preparing our portfolio to showcase our best projects. Coming soon!',
+        backHome: 'Back to Home'
+      },
+      ar: {
+        pageTitle: 'معرض الأعمال',
+        breadcrumbPage: 'معرض الأعمال',
+        underConstruction: 'تحت الإنشاء',
+        message: 'نحضّر معرض أعمالنا لعرض أفضل مشاريعنا. قريباً!',
+        backHome: 'العودة للرئيسية'
+      }
+    },
     news: {
       en: {
         pageTitle: 'News & Articles',

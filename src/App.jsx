@@ -4,6 +4,7 @@ import './App.css'
 import Navbar from './components/Navbar'
 import WhatsAppButton from './components/WhatsAppButton'
 import ScrollToTop from './components/ScrollToTop'
+import Footer from './components/Footer'
 import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
@@ -48,7 +49,10 @@ function ScrollToTopOnNavigate() {
   const { pathname } = useLocation()
 
   useEffect(() => {
+    // Force immediate scroll to top
     window.scrollTo(0, 0)
+    document.documentElement.scrollTop = 0
+    document.body.scrollTop = 0
   }, [pathname])
 
   return null
@@ -73,10 +77,12 @@ function AppContent() {
         <Route path="/about" element={<About t={t} lang={lang} />} />
         <Route path="/services" element={<Services t={t} lang={lang} />} />
         <Route path="/contact" element={<Contact t={t} lang={lang} />} />
+        <Route path="/portfolio" element={<UnderConstruction t={t} lang={lang} pageType="portfolio" />} />
         <Route path="/news" element={<UnderConstruction t={t} lang={lang} pageType="news" />} />
         <Route path="/tools" element={<UnderConstruction t={t} lang={lang} pageType="tools" />} />
       </Routes>
 
+      <Footer lang={lang} />
       <WhatsAppButton />
       <ScrollToTop />
     </div>

@@ -20,14 +20,14 @@ function Footer({ lang }) {
       contactUs: 'Contact Us',
       phone: '+966 59 570 9358',
       whatsapp: 'WhatsApp Direct',
-      location: 'Riyadh, Saudi Arabia',
+      location: 'Jeddah, Al Samer District, Saudi Arabia',
       copyright: '© 2025 Al Masoud. All Rights Reserved.',
       developedBy: 'Developed with'
     },
     ar: {
       companyName: 'مؤسسة المسعود',
       companySubtitle: 'للمقاولات العامة',
-      companyDescription: 'شركة رائدة في التشييد العمراني عبر تنفيذ مشاريع ناجحة ومبتكرة، نبني المستقبل ونرسخ الجودة برؤية عصرية متجددة.',
+      companyDescription: 'مؤسسة رائدة في التشييد العمراني عبر تنفيذ مشاريع ناجحة ومبتكرة، نبني المستقبل ونرسخ الجودة برؤية عصرية متجددة.',
       quickLinks: 'روابط سريعة',
       home: 'الرئيسية',
       aboutUs: 'من نحن',
@@ -42,7 +42,7 @@ function Footer({ lang }) {
       contactUs: 'تواصل معنا',
       phone: '+966 59 570 9358',
       whatsapp: 'واتساب مباشر',
-      location: 'الرياض، المملكة العربية السعودية',
+      location: 'جدة، حي السامر، المملكة العربية السعودية',
       copyright: '© 2025 مؤسسة المسعود. جميع الحقوق محفوظة.',
       developedBy: 'تم التطوير بـ'
     }
@@ -57,15 +57,7 @@ function Footer({ lang }) {
           {/* Company Info */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <div className="footer-logo-icon">
-                <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12 3L2 12h3v9h6v-6h2v6h6v-9h3L12 3zm0 2.84L18 12v7h-2v-6H8v6H6v-7l6-6.16z"/>
-                </svg>
-              </div>
-              <div className="footer-logo-text">
-                <span className="footer-company-name">{c.companyName}</span>
-                <span className="footer-company-subtitle">{c.companySubtitle}</span>
-              </div>
+              <img src="/logo.png" alt="Al Masoud Logo" className="footer-logo-img" />
             </Link>
             <p className="footer-description">{c.companyDescription}</p>
             <div className="footer-social">
@@ -99,7 +91,7 @@ function Footer({ lang }) {
               <li><Link to="/">{c.home}</Link></li>
               <li><Link to="/about">{c.aboutUs}</Link></li>
               <li><Link to="/services">{c.services}</Link></li>
-              <li><Link to="/news">{c.portfolio}</Link></li>
+              <li><Link to="/portfolio">{c.portfolio}</Link></li>
               <li><Link to="/contact">{c.contact}</Link></li>
             </ul>
           </div>
@@ -108,11 +100,10 @@ function Footer({ lang }) {
           <div className="footer-links">
             <h3 className="footer-title">{c.usefulLinks}</h3>
             <ul>
-              <li><Link to="/about">{c.aboutUs}</Link></li>
-              <li><Link to="/services">{c.services}</Link></li>
+              <li><Link to="/portfolio">{c.portfolio}</Link></li>
               <li><Link to="/news">{c.news}</Link></li>
-              <li><a href="#">{c.privacyPolicy}</a></li>
-              <li><a href="#">{c.terms}</a></li>
+              <li><Link to="/tools">{c.tools}</Link></li>
+              <li><Link to="/contact">{c.contact}</Link></li>
             </ul>
           </div>
 
@@ -160,10 +151,15 @@ function Footer({ lang }) {
       {/* Footer Bottom */}
       <div className="footer-bottom">
         <div className="footer-bottom-container">
-          <p className="copyright">{c.copyright}</p>
-          <p className="developed-by">
-            {c.developedBy} <span className="heart">❤</span> Islam Badran
-          </p>
+          <div className="footer-bottom-left">
+            <p className="copyright">{c.copyright}</p>
+            <p className="developed-by">
+              Powered by <a href="https://join-softwave.online/" target="_blank" rel="noopener noreferrer" className="powered-link">Join-Softwave</a>
+            </p>
+          </div>
+          <Link to="/" className="footer-bottom-logo">
+            <img src="/logo.png" alt="Al Masoud Logo" />
+          </Link>
         </div>
       </div>
     </footer>

@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
 
 function Contact({ t, lang }) {
   const isRTL = lang === 'ar'
+  const contentRef = useRef(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,6 +30,13 @@ function Contact({ t, lang }) {
 
     return () => observer.disconnect()
   }, [])
+
+  // Scroll to next section
+  const scrollToContent = () => {
+    if (contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   const content = {
     en: {
@@ -116,7 +124,7 @@ function Contact({ t, lang }) {
             <span className="breadcrumb-separator">—</span>
             <span className="breadcrumb-current">{c.breadcrumbContact}</span>
           </div>
-          <div className="scroll-indicator fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="scroll-indicator fade-in" style={{ animationDelay: '0.6s' }} onClick={scrollToContent}>
             <span>{c.scrollDown}</span>
             <div className="scroll-arrow"></div>
           </div>
@@ -124,7 +132,7 @@ function Contact({ t, lang }) {
       </section>
 
       {/* Contact Content Section - New Design */}
-      <section className="contact-section-new">
+      <section className="contact-section-new" ref={contentRef}>
         <div className="contact-wrapper">
           {/* Contact Form Side */}
           <div className="contact-form-side fade-in">

@@ -35,14 +35,6 @@ function Home({ t }) {
           <p className="hero-description hero-fade-in">{t.description}</p>
           <Link to="/portfolio" className="hero-cta-btn hero-fade-in">{t.browseProjects}</Link>
         </div>
-
-        {/* Slider Navigation */}
-        <button className="slider-nav slider-prev hero-fade-in">
-          <span>&#8249;</span>
-        </button>
-        <button className="slider-nav slider-next hero-fade-in">
-          <span>&#8250;</span>
-        </button>
       </section>
     </>
   )

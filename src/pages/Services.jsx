@@ -1,8 +1,16 @@
 import { Link } from 'react-router-dom'
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 function Services({ t, lang }) {
   const isRTL = lang === 'ar'
+  const contentRef = useRef(null)
+
+  // Scroll to next section
+  const scrollToContent = () => {
+    if (contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
 
   // Fade in animation on scroll
   useEffect(() => {
@@ -216,7 +224,7 @@ function Services({ t, lang }) {
             <span className="breadcrumb-separator">—</span>
             <span className="breadcrumb-current">{c.breadcrumbServices}</span>
           </div>
-          <div className="scroll-indicator fade-in" style={{ animationDelay: '0.6s' }}>
+          <div className="scroll-indicator fade-in" style={{ animationDelay: '0.6s' }} onClick={scrollToContent}>
             <span>{c.scrollDown}</span>
             <div className="scroll-arrow"></div>
           </div>
@@ -224,7 +232,7 @@ function Services({ t, lang }) {
       </section>
 
       {/* Services Overview Section */}
-      <section className="services-content">
+      <section className="services-content" ref={contentRef}>
         <div className="services-header">
           <span className="services-label fade-in">{c.companyLabel}</span>
           <h2 className="services-title fade-in" style={{ animationDelay: '0.2s' }}>{c.sectionTitle}</h2>
