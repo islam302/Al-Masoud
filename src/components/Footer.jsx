@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-
 function Footer({ lang }) {
   const content = {
     en: {
@@ -56,9 +54,9 @@ function Footer({ lang }) {
         <div className="footer-container">
           {/* Company Info */}
           <div className="footer-brand">
-            <Link to="/" className="footer-logo">
+            <a href="/" className="footer-logo">
               <img src="/logo.png" alt="Al Masoud Logo" className="footer-logo-img" />
-            </Link>
+            </a>
             <p className="footer-description">{c.companyDescription}</p>
             <div className="footer-social">
               <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Facebook">
@@ -88,11 +86,11 @@ function Footer({ lang }) {
           <div className="footer-links">
             <h3 className="footer-title">{c.quickLinks}</h3>
             <ul>
-              <li><Link to="/">{c.home}</Link></li>
-              <li><Link to="/about">{c.aboutUs}</Link></li>
-              <li><Link to="/services">{c.services}</Link></li>
-              <li><Link to="/portfolio">{c.portfolio}</Link></li>
-              <li><Link to="/contact">{c.contact}</Link></li>
+              <li><a href="/">{c.home}</a></li>
+              <li><a href="/about">{c.aboutUs}</a></li>
+              <li><a href="/services">{c.services}</a></li>
+              <li><a href="/portfolio">{c.portfolio}</a></li>
+              <li><a href="/contact">{c.contact}</a></li>
             </ul>
           </div>
 
@@ -100,10 +98,10 @@ function Footer({ lang }) {
           <div className="footer-links">
             <h3 className="footer-title">{c.usefulLinks}</h3>
             <ul>
-              <li><Link to="/portfolio">{c.portfolio}</Link></li>
-              <li><Link to="/news">{c.news}</Link></li>
-              <li><Link to="/tools">{c.tools}</Link></li>
-              <li><Link to="/contact">{c.contact}</Link></li>
+              <li><a href="/portfolio">{c.portfolio}</a></li>
+              <li><a href="/news">{c.news}</a></li>
+              <li><a href="/tools">{c.tools}</a></li>
+              <li><a href="/contact">{c.contact}</a></li>
             </ul>
           </div>
 
@@ -157,9 +155,9 @@ function Footer({ lang }) {
               Powered by <a href="https://join-softwave.online/" target="_blank" rel="noopener noreferrer" className="powered-link">Join-Softwave</a>
             </p>
           </div>
-          <Link to="/" className="footer-bottom-logo">
+          <a href="/" className="footer-bottom-logo">
             <img src="/logo.png" alt="Al Masoud Logo" />
-          </Link>
+          </a>
         </div>
       </div>
     </footer>
