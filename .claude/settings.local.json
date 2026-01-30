@@ -6,7 +6,9 @@
       "Bash(Get-ChildItem -Path \"d:\\\\CODING\\\\masoud\\\\Al-Masoud\\\\public\" -Recurse)",
       "Bash(Select-Object Name, Length)",
       "Bash(findstr:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(npm run optimize-images:*)",
+      "Bash(ls:*)"
     ]
   }
 }

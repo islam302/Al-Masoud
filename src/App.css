@@ -1089,6 +1089,23 @@ a.logo {
   display: none;
 }
 
+/* Blur placeholder state - shows tiny blurred image while full image loads */
+.bg-placeholder {
+  filter: blur(20px);
+  transform: scale(1.1); /* Prevent blur edges from showing */
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.bg-placeholder::before {
+  display: none;
+}
+
+/* Smooth transition from blur to clear */
+.bg-loaded {
+  filter: blur(0);
+  transform: scale(1);
+}
+
 @keyframes loadingShimmer {
   0% {
     background-position: 200% 0;

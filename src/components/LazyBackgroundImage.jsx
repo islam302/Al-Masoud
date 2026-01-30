@@ -1,9 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 
-function LazyBackgroundImage({ src, className, children, style = {} }) {
+function LazyBackgroundImage({ src, placeholder, className, children, style = {} }) {
   const [isLoaded, setIsLoaded] = useState(false)
   const [isInView, setIsInView] = useState(false)
+  const [placeholderLoaded, setPlaceholderLoaded] = useState(false)
   const ref = useRef(null)
+
+  // Generate placeholder path if not provided
+  const placeholderSrc = placeholder || src.replace(/\.(jpg|jpeg|png|webp)$/i, '-placeholder.webp')
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -13,7 +17,7 @@ function LazyBackgroundImage({ src, className, children, style = {} }) {
           observer.disconnect()
         }
       },
-      { rootMargin: '100px' }
+      { rootMargin: '200px' } // Increased margin for earlier loading
     )
 
     if (ref.current) {
@@ -23,6 +27,14 @@ function LazyBackgroundImage({ src, className, children, style = {} }) {
     return () => observer.disconnect()
   }, [])
 
+  // Load placeholder immediately (it's tiny)
+  useEffect(() => {
+    const img = new Image()
+    img.src = placeholderSrc
+    img.onload = () => setPlaceholderLoaded(true)
+  }, [placeholderSrc])
+
+  // Load full image when in view
   useEffect(() => {
     if (!isInView) return
 
@@ -31,13 +43,20 @@ function LazyBackgroundImage({ src, className, children, style = {} }) {
     img.onload = () => setIsLoaded(true)
   }, [isInView, src])
 
+  // Determine which image to show
+  const getBackgroundImage = () => {
+    if (isLoaded) return `url(${src})`
+    if (placeholderLoaded) return `url(${placeholderSrc})`
+    return 'none'
+  }
+
   return (
     <div
       ref={ref}
-      className={`${className} ${isLoaded ? 'bg-loaded' : 'bg-loading'}`}
+      className={`${className} ${isLoaded ? 'bg-loaded' : placeholderLoaded ? 'bg-placeholder' : 'bg-loading'}`}
       style={{
         ...style,
-        backgroundImage: isLoaded ? `url(${src})` : 'none'
+        backgroundImage: getBackgroundImage()
       }}
     >
       {children}

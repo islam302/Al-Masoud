@@ -115,7 +115,7 @@ function Contact({ t, lang }) {
     <div className="contact-page">
       {/* Hero Section with Background */}
       <section className="page-hero">
-        <LazyBackgroundImage src="/contact_me.jpg" className="page-hero-bg" />
+        <LazyBackgroundImage src="/optimized/contact_me.webp" className="page-hero-bg" />
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <span className="page-hero-label fade-in">{c.togetherToExcellence}</span>

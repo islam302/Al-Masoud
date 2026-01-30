@@ -48,56 +48,56 @@ function Services({ t, lang }) {
           title: 'General Contracting',
           description: 'We execute contracting projects with an integrated vision that combines precision and creativity, with full commitment to technical specifications and specified timelines. We provide our services in various types of projects: residential, commercial, and industrial, while ensuring the highest standards of safety and quality.',
           features: ['Building Construction', 'Infrastructure Works', 'Industrial Projects', 'Commercial Buildings'],
-          image: '/our_services/1.webp'
+          image: '/optimized/our_services/1.webp'
         },
         {
           id: 2,
           title: 'Commercial Shop Finishing',
           description: 'We provide commercial shop finishing services with the highest standards of quality and creativity, with modern designs that reflect brand identity and attract customers. We pay attention to every detail from flooring and walls to lighting and facades, ensuring a professional and distinctive commercial environment.',
           features: ['Shop Facade Design', 'Flooring & Walls', 'Lighting Systems', 'Interior Finishing'],
-          image: '/our_services/2.webp'
+          image: '/optimized/our_services/2.webp'
         },
         {
           id: 3,
           title: 'Interior & Exterior Finishing',
           description: 'We provide interior and exterior finishing services with the highest standards of quality and professionalism. Our services include painting, gypsum, suspended ceilings, various types of flooring, in addition to exterior facade finishing with durable materials and modern designs that give buildings a lasting aesthetic character.',
           features: ['Wall Treatments', 'Flooring Solutions', 'Ceiling Works', 'Facade Finishing'],
-          image: '/our_services/3.webp'
+          image: '/optimized/our_services/3.webp'
         },
         {
           id: 4,
           title: 'Decoration & Design',
           description: 'In the field of decoration and design, we offer creative solutions that combine beauty and functionality. We work on designing interior spaces that reflect the client\'s taste and achieve optimal use of space, with attention to detail and careful selection of materials and colors to create comfortable and inspiring environments.',
           features: ['Interior Design', 'Space Planning', '3D Visualization', 'Custom Furniture'],
-          image: '/our_services/4.webp'
+          image: '/optimized/our_services/4.webp'
         },
         {
           id: 5,
           title: 'Integrated Cladding Solutions',
           description: 'We provide integrated cladding solutions with various materials such as: wood, marble, natural stone, HPL, and other high-quality materials. We ensure precise and professional cladding work, whether for interior walls or exterior facades, adding an elegant aesthetic touch that lasts long.',
           features: ['Stone Cladding', 'Wood Cladding', 'Marble Works', 'HPL Installation'],
-          image: '/our_services/5.webp'
+          image: '/optimized/our_services/5.webp'
         },
         {
           id: 6,
           title: 'Project Management',
           description: 'End-to-end project management ensuring seamless coordination and successful delivery. We oversee every aspect of your project from planning to completion.',
           features: ['Timeline Management', 'Budget Control', 'Quality Assurance', 'Risk Management'],
-          image: '/our_services/6.webp'
+          image: '/optimized/our_services/6.webp'
         },
         {
           id: 7,
           title: '3D Design Service',
           description: 'We offer 3D design services with high standards of professionalism and precision, with realistic models that highlight architectural and finishing details accurately. We ensure to translate clients\' vision into 3D images that facilitate decision-making and clarify the project\'s appearance before execution. We also provide interior and exterior designs that reflect the desired identity.',
           features: ['Realistic 3D Models', 'Architectural Visualization', 'Interior Design', 'Exterior Design'],
-          image: '/our_services/8.webp'
+          image: '/optimized/our_services/8.webp'
         },
         {
           id: 8,
           title: 'Landscaping & Maintenance',
           description: 'We provide landscaping and maintenance services with high quality standards, with solutions that include designing green spaces, planting, and installing irrigation systems. We ensure to provide environments that combine beauty and functionality to suit clients\' needs, with periodic maintenance and attention to detail to ensure a lasting vibrant appearance.',
           features: ['Green Space Design', 'Plant Installation', 'Irrigation Systems', 'Periodic Maintenance'],
-          image: '/our_services/8.webp'
+          image: '/optimized/our_services/8.webp'
         }
       ]
     },
@@ -116,56 +116,56 @@ function Services({ t, lang }) {
           title: 'المقاولات العامة',
           description: 'ننفذ مشاريع المقاولات برؤية متكاملة تجمع بين الدقة والإبداع، مع الالتزام التام بالمواصفات الفنية والجداول الزمنية المحددة. نقدم خدماتنا في مختلف أنواع المشاريع: السكنية، التجارية، والصناعية، مع ضمان أعلى معايير السلامة والجودة.',
           features: ['بناء المباني', 'أعمال البنية التحتية', 'المشاريع الصناعية', 'المباني التجارية'],
-          image: '/our_services/1.webp'
+          image: '/optimized/our_services/1.webp'
         },
         {
           id: 2,
           title: 'تشطيبات المحلات التجارية',
           description: 'نقدّم خدمات تشطيب المحلات التجارية بأعلى معايير الجودة والإبداع، مع تصاميم عصرية تعكس هوية العلامة التجارية وتجذب العملاء. نهتم بكل التفاصيل من الأرضيات والجدران إلى الإضاءة والواجهات، لضمان بيئة تجارية احترافية ومميزة.',
           features: ['تصميم واجهات المحلات', 'الأرضيات والجدران', 'أنظمة الإضاءة', 'التشطيبات الداخلية'],
-          image: '/our_services/2.webp'
+          image: '/optimized/our_services/2.webp'
         },
         {
           id: 3,
           title: 'التشطيبات الداخلية والخارجية',
           description: 'نقدم خدمات التشطيبات الداخلية والخارجية بأعلى معايير الجودة والاحترافية. تشمل خدماتنا أعمال الدهانات، الجبس، الأسقف المستعارة، الأرضيات بمختلف أنواعها، إضافةً إلى تشطيب الواجهات الخارجية بمواد متينة وتصاميم عصرية تُضفي على المباني طابعًا جماليًا يدوم.',
           features: ['معالجة الجدران', 'حلول الأرضيات', 'أعمال الأسقف', 'تشطيب الواجهات'],
-          image: '/our_services/3.webp'
+          image: '/optimized/our_services/3.webp'
         },
         {
           id: 4,
           title: 'أعمال الديكور والتصميم',
           description: 'نقدّم في مجال أعمال الديكور والتصميم حلولًا إبداعية تجمع بين الجمال والوظيفية. نعمل على تصميم المساحات الداخلية بما يعكس ذوق العميل ويحقق الاستغلال الأمثل للمساحات، مع اهتمام بالتفاصيل واختيار الخامات والألوان بعناية لخلق بيئات مريحة وملهمة.',
           features: ['التصميم الداخلي', 'تخطيط المساحات', 'التصور ثلاثي الأبعاد', 'الأثاث المخصص'],
-          image: '/our_services/4.webp'
+          image: '/optimized/our_services/4.webp'
         },
         {
           id: 5,
           title: 'حلول التكسية المتكاملة',
           description: 'نقدّم حلول التكسية المتكاملة بمختلف المواد مثل: الخشب، الرخام، الحجر الطبيعي، HPL، وغيرها من الخامات عالية الجودة. نحرص على تنفيذ أعمال التكسية بدقة واحترافية، سواء للجدران الداخلية أو الواجهات الخارجية، بما يُضفي لمسة جمالية راقية تدوم طويلاً.',
           features: ['تكسية الحجر', 'تكسية الخشب', 'أعمال الرخام', 'تركيب HPL'],
-          image: '/our_services/5.webp'
+          image: '/optimized/our_services/5.webp'
         },
         {
           id: 6,
           title: 'إدارة المشاريع',
           description: 'إدارة شاملة للمشاريع تضمن التنسيق السلس والتسليم الناجح. نشرف على كل جانب من جوانب مشروعك من التخطيط إلى الإنجاز.',
           features: ['إدارة الجداول الزمنية', 'التحكم في الميزانية', 'ضمان الجودة', 'إدارة المخاطر'],
-          image: '/our_services/6.webp'
+          image: '/optimized/our_services/6.webp'
         },
         {
           id: 7,
           title: 'خدمة التصميم (3D Design)',
           description: 'نقدّم خدمة التصميم ثلاثي الأبعاد بمعايير عالية من الاحترافية والدقة، مع نماذج واقعية تبرز التفاصيل المعمارية والتشطيبية بدقة. نحرص على ترجمة رؤية العملاء إلى صور مجسمة تُسهّل اتخاذ القرار وتوضح شكل المشروع قبل التنفيذ. كما نوفر تصاميم داخلية وخارجية تعكس الهوية المطلوبة.',
           features: ['نماذج ثلاثية الأبعاد واقعية', 'التصور المعماري', 'التصميم الداخلي', 'التصميم الخارجي'],
-          image: '/our_services/8.webp'
+          image: '/optimized/our_services/8.webp'
         },
         {
           id: 8,
           title: 'تنسيق الحدائق وصيانتها',
           description: 'نقدّم خدمات تنسيق الحدائق وصيانتها بمعايير عالية من الجودة، مع حلول تشمل تصميم المساحات الخضراء وزراعة النباتات وتركيب أنظمة الري. نحرص على توفير بيئات تجمع بين الجمال والوظيفية وتلائم احتياجات العملاء، مع صيانة دورية وعناية بالتفاصيل لضمان مظهر حيوي يدوم.',
           features: ['تصميم المساحات الخضراء', 'زراعة النباتات', 'أنظمة الري', 'الصيانة الدورية'],
-          image: '/our_services/8.webp'
+          image: '/optimized/our_services/8.webp'
         }
       ]
     }
@@ -215,7 +215,7 @@ function Services({ t, lang }) {
     <div className="services-page">
       {/* Hero Section with Background */}
       <section className="page-hero">
-        <LazyBackgroundImage src="/costraction_background3.jpg" className="page-hero-bg" />
+        <LazyBackgroundImage src="/optimized/costraction_background3.webp" className="page-hero-bg" />
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <span className="page-hero-label fade-in">{c.togetherToExcellence}</span>
@@ -250,7 +250,7 @@ function Services({ t, lang }) {
             >
               <div className="service-detailed-image">
                 <img src={service.image} alt={service.title} loading="lazy" onError={(e) => {
-                  e.target.src = '/costraction_background.jpg'
+                  e.target.src = '/optimized/costraction_background.webp'
                 }} />
                 <div className="service-detailed-number">0{service.id}</div>
               </div>
@@ -284,7 +284,7 @@ function Services({ t, lang }) {
 
       {/* CTA Section */}
       <section className="services-cta-section">
-        <LazyBackgroundImage src="/costraction_background2.jpg" className="services-cta-bg" />
+        <LazyBackgroundImage src="/optimized/costraction_background2.webp" className="services-cta-bg" />
         <div className="services-cta-overlay"></div>
         <div className="services-cta-content">
           <h2 className="services-cta-title fade-in">

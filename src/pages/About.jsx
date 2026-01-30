@@ -75,7 +75,7 @@ function About({ t, lang }) {
     <div className="about-page">
       {/* Hero Section with Background */}
       <section className="page-hero">
-        <LazyBackgroundImage src="/costraction_background.jpg" className="page-hero-bg" />
+        <LazyBackgroundImage src="/optimized/costraction_background.webp" className="page-hero-bg" />
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <span className="page-hero-label fade-in">{c.togetherToExcellence}</span>
@@ -98,7 +98,7 @@ function About({ t, lang }) {
           {/* Images Column - Left Side */}
           <div className="about-images">
             <div className="about-image-top fade-in">
-              <img src="/about.jpg" alt="Construction" loading="lazy" />
+              <img src="/optimized/about.webp" alt="Construction" loading="lazy" />
             </div>
             <div className="about-image-bottom fade-in" style={{ animationDelay: '0.2s' }}>
               <img src="/about-2-1-1.webp" alt="Construction site" loading="lazy" />
@@ -157,7 +157,7 @@ function About({ t, lang }) {
 
       {/* Mission Section */}
       <section className="mission-section">
-        <LazyBackgroundImage src="/costraction_background2.jpg" className="mission-bg" />
+        <LazyBackgroundImage src="/optimized/costraction_background2.webp" className="mission-bg" />
         <div className="mission-overlay"></div>
         <div className="mission-content">
           <h2 className="mission-title fade-in">{c.missionTitle}</h2>
