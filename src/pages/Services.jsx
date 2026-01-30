@@ -215,7 +215,7 @@ function Services({ t, lang }) {
     <div className="services-page">
       {/* Hero Section with Background */}
       <section className="page-hero">
-        <LazyBackgroundImage src="/optimized/costraction_background3.webp" className="page-hero-bg" />
+        <LazyBackgroundImage src="/optimized/costraction_background3.webp" className="page-hero-bg" priority />
         <div className="page-hero-overlay"></div>
         <div className="page-hero-content">
           <span className="page-hero-label fade-in">{c.togetherToExcellence}</span>

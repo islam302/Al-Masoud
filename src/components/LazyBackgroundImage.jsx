@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 
-function LazyBackgroundImage({ src, placeholder, className, children, style = {} }) {
+function LazyBackgroundImage({ src, placeholder, className, children, style = {}, priority = false }) {
   const [isLoaded, setIsLoaded] = useState(false)
-  const [isInView, setIsInView] = useState(false)
+  const [isInView, setIsInView] = useState(priority) // Start true if priority
   const [placeholderLoaded, setPlaceholderLoaded] = useState(false)
   const ref = useRef(null)
 
@@ -10,6 +10,9 @@ function LazyBackgroundImage({ src, placeholder, className, children, style = {}
   const placeholderSrc = placeholder || src.replace(/\.(jpg|jpeg|png|webp)$/i, '-placeholder.webp')
 
   useEffect(() => {
+    // Skip observer if priority - load immediately
+    if (priority) return
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,7 +28,7 @@ function LazyBackgroundImage({ src, placeholder, className, children, style = {}
     }
 
     return () => observer.disconnect()
-  }, [])
+  }, [priority])
 
   // Load placeholder immediately (it's tiny)
   useEffect(() => {
