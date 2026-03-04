@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import LazyBackgroundImage from '../components/LazyBackgroundImage'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 function About({ t, lang }) {
   const isRTL = lang === 'ar'
@@ -14,23 +15,7 @@ function About({ t, lang }) {
   }
 
   // Fade in animation on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = document.querySelectorAll('.fade-in')
-    elements.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  useScrollReveal()
 
   const content = {
     en: {
@@ -93,7 +78,7 @@ function About({ t, lang }) {
       </section>
 
       {/* About Content Section */}
-      <section className="about-content" ref={sectionRef}>
+      <section className="about-content fade-in section-reveal" ref={sectionRef}>
         <div className="about-container">
           {/* Images Column - Left Side */}
           <div className="about-images">
@@ -156,7 +141,7 @@ function About({ t, lang }) {
       </section>
 
       {/* Mission Section */}
-      <section className="mission-section">
+      <section className="mission-section fade-in section-reveal">
         <LazyBackgroundImage src="/optimized/costraction_background2.webp" className="mission-bg" />
         <div className="mission-overlay"></div>
         <div className="mission-content">

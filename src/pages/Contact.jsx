@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useState, useRef } from 'react'
+import { useState, useRef } from 'react'
 import LazyBackgroundImage from '../components/LazyBackgroundImage'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 function Contact({ t, lang }) {
   const isRTL = lang === 'ar'
@@ -14,23 +15,7 @@ function Contact({ t, lang }) {
   })
 
   // Fade in animation on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = document.querySelectorAll('.fade-in')
-    elements.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  useScrollReveal()
 
   // Scroll to next section
   const scrollToContent = () => {
@@ -133,7 +118,7 @@ function Contact({ t, lang }) {
       </section>
 
       {/* Contact Content Section - New Design */}
-      <section className="contact-section-new" ref={contentRef}>
+      <section className="contact-section-new fade-in section-reveal" ref={contentRef}>
         <div className="contact-wrapper">
           {/* Contact Form Side */}
           <div className="contact-form-side fade-in">

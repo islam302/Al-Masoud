@@ -1,4 +1,7 @@
 function Footer({ lang }) {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
   const content = {
     en: {
       companyName: 'Al Masoud',
@@ -20,7 +23,8 @@ function Footer({ lang }) {
       whatsapp: 'WhatsApp Direct',
       location: 'Jeddah, Al Samer District, Saudi Arabia',
       copyright: '© 2025 Al Masoud. All Rights Reserved.',
-      developedBy: 'Developed with'
+      developedBy: 'Developed with',
+      backToTop: 'Back to Top'
     },
     ar: {
       companyName: 'مؤسسة المسعود',
@@ -42,7 +46,8 @@ function Footer({ lang }) {
       whatsapp: 'واتساب مباشر',
       location: 'جدة، حي السامر، المملكة العربية السعودية',
       copyright: '© 2025 مؤسسة المسعود. جميع الحقوق محفوظة.',
-      developedBy: 'تم التطوير بـ'
+      developedBy: 'تم التطوير بـ',
+      backToTop: 'العودة للأعلى'
     }
   }
 
@@ -145,6 +150,28 @@ function Footer({ lang }) {
           </div>
         </div>
       </div>
+
+      {/* Back to Top Button */}
+      <button type="button" className="footer-back-to-top" onClick={(e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        // Try all possible scroll methods
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        document.getElementById('root')?.scrollTo({ top: 0, behavior: 'smooth' })
+        // Fallback: force scroll after a short delay
+        setTimeout(() => {
+          if (window.scrollY > 0 || document.documentElement.scrollTop > 0) {
+            document.documentElement.scrollTop = 0
+            document.body.scrollTop = 0
+            window.scrollTo(0, 0)
+          }
+        }, 800)
+      }}>
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+        </svg>
+        {c.backToTop}
+      </button>
 
       {/* Footer Bottom */}
       <div className="footer-bottom">

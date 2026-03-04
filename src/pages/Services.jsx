@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import LazyBackgroundImage from '../components/LazyBackgroundImage'
+import useScrollReveal from '../hooks/useScrollReveal'
 
 function Services({ t, lang }) {
   const isRTL = lang === 'ar'
@@ -14,23 +15,7 @@ function Services({ t, lang }) {
   }
 
   // Fade in animation on scroll
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in-visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = document.querySelectorAll('.fade-in')
-    elements.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
+  useScrollReveal()
 
   const content = {
     en: {
@@ -233,7 +218,7 @@ function Services({ t, lang }) {
       </section>
 
       {/* Services Overview Section */}
-      <section className="services-content" ref={contentRef}>
+      <section className="services-content fade-in section-reveal" ref={contentRef}>
         <div className="services-header">
           <span className="services-label fade-in">{c.companyLabel}</span>
           <h2 className="services-title fade-in" style={{ animationDelay: '0.2s' }}>{c.sectionTitle}</h2>
@@ -283,7 +268,7 @@ function Services({ t, lang }) {
       </section>
 
       {/* CTA Section */}
-      <section className="services-cta-section">
+      <section className="services-cta-section fade-in section-reveal">
         <LazyBackgroundImage src="/optimized/costraction_background2.webp" className="services-cta-bg" />
         <div className="services-cta-overlay"></div>
         <div className="services-cta-content">

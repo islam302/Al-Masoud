@@ -11,20 +11,42 @@ import Services from './pages/Services'
 import Contact from './pages/Contact'
 import UnderConstruction from './pages/UnderConstruction'
 
-// Critical images to preload before showing the site
-const CRITICAL_IMAGES = [
+// All site assets to preload before showing the site
+const PRELOAD_IMAGES = [
   '/logo.png',
   '/optimized/costraction_background.webp',
+  '/optimized/costraction_background2.webp',
   '/optimized/costraction_background3.webp',
   '/optimized/contact_me.webp',
+  '/optimized/about.webp',
+  '/optimized/loading.webp',
+  '/optimized/our_services/1.webp',
+  '/optimized/our_services/2.webp',
+  '/optimized/our_services/3.webp',
+  '/optimized/our_services/4.webp',
+  '/optimized/our_services/5.webp',
+  '/optimized/our_services/6.webp',
+  '/optimized/our_services/8.webp',
 ]
 
 function preloadImage(src) {
   return new Promise((resolve) => {
     const img = new Image()
     img.onload = () => resolve(src)
-    img.onerror = () => resolve(src) // Don't block on errors
+    img.onerror = () => resolve(src)
     img.src = src
+  })
+}
+
+function preloadVideo(src) {
+  return new Promise((resolve) => {
+    const video = document.createElement('video')
+    video.preload = 'auto'
+    video.oncanplaythrough = () => resolve(src)
+    video.onerror = () => resolve(src)
+    video.src = src
+    // Trigger loading
+    video.load()
   })
 }
 
@@ -34,33 +56,44 @@ function Preloader({ onFinished }) {
 
   useEffect(() => {
     let loaded = 0
-    const total = CRITICAL_IMAGES.length
+    // images + 1 video
+    const total = PRELOAD_IMAGES.length + 1
 
-    // Start with a small base progress for perceived speed
-    setProgress(5)
+    const tick = () => {
+      loaded++
+      setProgress(Math.round((loaded / total) * 100))
+    }
 
-    const promises = CRITICAL_IMAGES.map((src) =>
-      preloadImage(src).then(() => {
-        loaded++
-        setProgress(Math.round((loaded / total) * 90) + 5)
-      })
+    const imagePromises = PRELOAD_IMAGES.map((src) =>
+      preloadImage(src).then(tick)
     )
 
-    Promise.all(promises).then(() => {
-      setProgress(100)
-      // Small delay to let the bar reach 100%, then fade out
-      setTimeout(() => setFadeOut(true), 300)
-      setTimeout(() => onFinished(), 900) // Match CSS transition duration
+    const videoPromise = preloadVideo('/background.mp4').then(tick)
+
+    Promise.all([...imagePromises, videoPromise]).then(() => {
+      setTimeout(() => setFadeOut(true), 400)
+      setTimeout(() => onFinished(), 1100)
     })
   }, [onFinished])
 
   return (
     <div className={`preloader ${fadeOut ? 'preloader-fade-out' : ''}`}>
       <div className="preloader-content">
-        <img src="/logo.png" alt="Al Masoud" className="preloader-logo" />
-        <div className="preloader-bar-track">
-          <div className="preloader-bar-fill" style={{ width: `${progress}%` }} />
+        {/* Spinning ring around logo */}
+        <div className="preloader-ring-wrapper">
+          <svg className="preloader-ring" viewBox="0 0 160 160">
+            <circle className="preloader-ring-bg" cx="80" cy="80" r="72" />
+            <circle
+              className="preloader-ring-fill"
+              cx="80" cy="80" r="72"
+              style={{
+                strokeDashoffset: 452 - (452 * progress) / 100
+              }}
+            />
+          </svg>
+          <img src="/logo.png" alt="Al Masoud" className="preloader-logo" />
         </div>
+        <div className="preloader-percentage">{progress}%</div>
       </div>
     </div>
   )
@@ -128,7 +161,7 @@ function AppContent() {
       <Navbar lang={lang} toggleLanguage={toggleLanguage} t={t} />
 
       <Routes>
-        <Route path="/" element={<Home t={t} />} />
+        <Route path="/" element={<Home t={t} lang={lang} />} />
         <Route path="/about" element={<About t={t} lang={lang} />} />
         <Route path="/services" element={<Services t={t} lang={lang} />} />
         <Route path="/contact" element={<Contact t={t} lang={lang} />} />
