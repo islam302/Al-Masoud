@@ -11,6 +11,61 @@ import Services from './pages/Services'
 import Contact from './pages/Contact'
 import UnderConstruction from './pages/UnderConstruction'
 
+// Critical images to preload before showing the site
+const CRITICAL_IMAGES = [
+  '/logo.png',
+  '/optimized/costraction_background.webp',
+  '/optimized/costraction_background3.webp',
+  '/optimized/contact_me.webp',
+]
+
+function preloadImage(src) {
+  return new Promise((resolve) => {
+    const img = new Image()
+    img.onload = () => resolve(src)
+    img.onerror = () => resolve(src) // Don't block on errors
+    img.src = src
+  })
+}
+
+function Preloader({ onFinished }) {
+  const [progress, setProgress] = useState(0)
+  const [fadeOut, setFadeOut] = useState(false)
+
+  useEffect(() => {
+    let loaded = 0
+    const total = CRITICAL_IMAGES.length
+
+    // Start with a small base progress for perceived speed
+    setProgress(5)
+
+    const promises = CRITICAL_IMAGES.map((src) =>
+      preloadImage(src).then(() => {
+        loaded++
+        setProgress(Math.round((loaded / total) * 90) + 5)
+      })
+    )
+
+    Promise.all(promises).then(() => {
+      setProgress(100)
+      // Small delay to let the bar reach 100%, then fade out
+      setTimeout(() => setFadeOut(true), 300)
+      setTimeout(() => onFinished(), 900) // Match CSS transition duration
+    })
+  }, [onFinished])
+
+  return (
+    <div className={`preloader ${fadeOut ? 'preloader-fade-out' : ''}`}>
+      <div className="preloader-content">
+        <img src="/logo.png" alt="Al Masoud" className="preloader-logo" />
+        <div className="preloader-bar-track">
+          <div className="preloader-bar-fill" style={{ width: `${progress}%` }} />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 const translations = {
   en: {
     home: 'Home',
@@ -90,8 +145,11 @@ function AppContent() {
 }
 
 function App() {
+  const [loading, setLoading] = useState(true)
+
   return (
     <Router>
+      {loading && <Preloader onFinished={() => setLoading(false)} />}
       <AppContent />
     </Router>
   )
