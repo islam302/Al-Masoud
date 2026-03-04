@@ -100,7 +100,7 @@ function Home({ t, lang }) {
       {/* Video Background */}
       <div className="video-container">
         <video autoPlay muted loop playsInline className="video-background">
-          <source src="/background.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dn70azl7v/video/upload/v1772638895/background_nkobaz.mp4" type="video/mp4" />
         </video>
         <div className="video-overlay"></div>
       </div>

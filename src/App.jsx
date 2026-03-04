@@ -68,7 +68,7 @@ function Preloader({ onFinished }) {
       preloadImage(src).then(tick)
     )
 
-    const videoPromise = preloadVideo('/background.mp4').then(tick)
+    const videoPromise = preloadVideo('https://res.cloudinary.com/dn70azl7v/video/upload/v1772638895/background_nkobaz.mp4').then(tick)
 
     Promise.all([...imagePromises, videoPromise]).then(() => {
       setTimeout(() => setFadeOut(true), 400)
